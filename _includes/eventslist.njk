@@ -1,0 +1,8 @@
+<ul>
+{% for event in eventslist | reverse %}
+  <li>
+    <a href="{{ event.url | url }}">{% if event.data.title %}{{ event.data.title }}{% else %}<code>{{ event.url }}</code>{% endif %}</a>
+    <time datetime="{{ event.date | htmlDateString }}">{{ event.date | readableDate }}</time>
+  </li>
+{% endfor %}
+</ul>

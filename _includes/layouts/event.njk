@@ -1,0 +1,42 @@
+---
+#layout: layouts/base.njk
+templateClass: tmpl-post
+---
+{% extends "layouts/base.njk" %}
+
+{% set shareUrl = metadata.url + page.url %}
+
+{% block article %}
+{{ content | safe }}
+
+{% if image %}
+  <img src="{{ image }}" alt="{{ title }}" title="{{ title }}">
+{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ExhibitionEvent",
+  "name": "{{ title }}",
+  "startDate": "2024-10-26T15:00",
+  "endDate": "2024-10-26T23:00",
+  "location": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dresden",
+      "addressRegion": "Saxony",
+      "postalCode": "01277",
+      "streetAddress": "Zwinglistr. 25"
+    },
+    "name": "Retro Computer Dresden e.V."
+  },
+  "image": [],
+  "organizer": "Retro Computer Dresden e.V.",
+  "url": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
+  "mainEntityOfPage": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
+  "description": "{{ content | striptags | truncate(140) }}"
+}
+</script>
+
+{% endblock %}
