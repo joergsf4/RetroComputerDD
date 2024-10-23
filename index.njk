@@ -5,12 +5,22 @@ description: Bei uns werkeln kluge Köpfe als Freunde zusammen. Gemeinsam stecke
 image: https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg
 date: Last Modified
 ---
+<img src="/img/rcd_room.jpeg" alt="Vereinsraum RCD" title="Vereinsraum RCD">
 <p>
-  Bei uns werkeln kluge Köpfe als Freunde zusammen. Gemeinsam stecken wir viel Freude und Leidenschaft in unser Projekt, das zeichnet uns aus.
+  Der Verein <i>Retro Computer Dresden e.V.</i> wurde Anfang 2023 gegründet und hat seither einen festen Vereinstandort in Dresden Gruna. Wir haben inzwischen über 30 Systeme nutzbar im Betrieb und haben jeden Mittwoch für die Öffentlichkeit geöffnet. Wir veranstalten regelmäßig Events vom Kindergeburtstag über Race Days bis zu unserer legendären Retro Party. 
 </p>
+<h2>
+  Vereinsanmeldung
+</h2> 
+<a href="https://web.meinverein.de/profile/65302" target="_new">https://web.meinverein.de/profile/65302</a>
+<div id="events">
+  <h2>Aktuelle Veranstaltungen</h2>
+  {% set eventslist = collections.events %}
+  {% include "eventslist.njk" %}
+</div>
 
 <div id="posts">
-  <h2>Neues</h2>
+  <h2>Beiträge</h2>
   {% set postslist = collections.posts %}
   {% include "postslist.njk" %}
 </div>

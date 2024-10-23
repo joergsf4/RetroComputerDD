@@ -2,25 +2,25 @@
   "title": "Retro Computer Dresden",
   "url": "https://www.retrocomputer-dresden.de",
   "domain": "retrocomputer-dresden.de",
-  "description": "Description of the website. Update me.",
-  "genre": "Insert a schema.org genre",
+  "description": "Vereinswebseite des Retro Computer Dresden e.V. Neigkeiten zum ",
+  "genre": "Retro Computing, Vintage Computers, Computer History, Gaming, Technology Events",
   "googleAnalyticsId": "GA ID. Update me. Note, that this is not compatible with the not-yet-commonly used version 4 of Google Analytics",
   "sendWebVitals": false,
   "feed": {
-    "subtitle": "Subtitle. Update me.",
+    "subtitle": "Feed Retro Computer Dresden.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://update-me.com"
+    "id": "https://retrocomputer-dresden.de"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "https://update-me.com/feed/feed.json"
+    "url": "https://retrocomputer-dresden.de/feed/feed.json"
   },
   "author": {
-    "name": "Author Name. Update me.",
-    "twitterHandle": "update_me"
+    "name": "Retro Computer Dresden e.V.",
+    "twitterHandle": ""
   },
   "publisher": {
-    "name": "Publisher name. Update me."
+    "name": "Retro Computer Dresden e.V."
   }
 }

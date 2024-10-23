@@ -7,11 +7,10 @@ templateClass: tmpl-post
 {% set shareUrl = metadata.url + page.url %}
 
 {% block article %}
-{{ content | safe }}
-
 {% if image %}
   <img src="{{ image }}" alt="{{ title }}" title="{{ title }}">
 {% endif %}
+{{ content | safe }}
 
 <script type="application/ld+json">
 {
