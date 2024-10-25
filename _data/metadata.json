@@ -5,7 +5,7 @@
   "description": "Vereinswebseite des Retro Computer Dresden e.V. Neigkeiten zum ",
   "genre": "Retro Computing, Vintage Computers, Computer History, Gaming, Technology Events",
   "googleAnalyticsId": "GA ID. Update me. Note, that this is not compatible with the not-yet-commonly used version 4 of Google Analytics",
-  "sendWebVitals": false,
+  "sendWebVitals": true,
   "feed": {
     "subtitle": "Feed Retro Computer Dresden.",
     "filename": "feed.xml",
