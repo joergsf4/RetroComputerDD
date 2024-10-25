@@ -1,0 +1,13 @@
+---
+title: Retro Computer Dresden e.V.
+layout: layouts/gallery.njk
+eleventyNavigation:
+  key: Galerie
+  order: 1
+---
+{% set images = collections.galleryImages | reverse %}
+{% gallery "wir"%}
+  {% for image in images %}
+    {% galleryImage image.path, "" %}
+  {% endfor %}
+{% endgallery %}

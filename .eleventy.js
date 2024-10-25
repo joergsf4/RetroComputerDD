@@ -1,45 +1,3 @@
-/**
- * Copyright (c) 2020 Google Inc
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of
- * this software and associated documentation files (the "Software"), to deal in
- * the Software without restriction, including without limitation the rights to
- * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- * the Software, and to permit persons to whom the Software is furnished to do so,
- * subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-
-/**
- * Copyright (c) 2018 Zach Leatherman
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of
- * this software and associated documentation files (the "Software"), to deal in
- * the Software without restriction, including without limitation the rights to
- * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- * the Software, and to permit persons to whom the Software is furnished to do so,
- * subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-
 const { DateTime } = require("luxon");
 const { promisify } = require("util");
 const fs = require("fs");
@@ -59,7 +17,81 @@ const localImages = require("./third_party/eleventy-plugin-local-images/.elevent
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
 
+//gallery
+const sharp = require('sharp');
+const Image = require('@11ty/eleventy-img');
+
+const GALLERY_IMAGE_WIDTH = 192;
+const LANDSCAPE_LIGHTBOX_IMAGE_WIDTH = 2000;
+const PORTRAIT_LIGHTBOX_IMAGE_WIDTH = 720;
+
+function galleryShortcode(content, name) {
+    return `
+        <div>
+            <div class="gallery" id="gallery-${name}">
+                ${content}
+            </div>
+            <script type="module">
+                import PhotoSwipeLightbox from '/js/photoswipe-lightbox.esm.js';
+                const lightbox = new PhotoSwipeLightbox({
+                    gallery: '#gallery-${name}',
+                    children: 'a',
+                    pswpModule: () => import('/js/photoswipe.esm.js')
+                });
+                lightbox.init();
+            </script>
+        </div>
+    `.replace(/(\r\n|\n|\r)/gm, "");
+}
+
+async function galleryImageShortcode(src, alt) {
+    let lightboxImageWidth = LANDSCAPE_LIGHTBOX_IMAGE_WIDTH;
+
+    const metadata = await sharp(src).metadata();
+    if (metadata.orientation > 1) {
+        console.log('Rotated image detected:', src, metadata.orientation);
+        await sharp(src).rotate().toFile(`correct/${src.split("/").pop()}`);
+    }
+
+    if(metadata.height > metadata.width) {
+        lightboxImageWidth = PORTRAIT_LIGHTBOX_IMAGE_WIDTH;
+    }
+
+    const options = {
+        formats: ['jpeg'],
+        widths: [GALLERY_IMAGE_WIDTH, lightboxImageWidth],
+        urlPath: "/gen/",
+        outputDir: './_site/gen/'
+    }
+
+    const genMetadata = await Image(src, options);
+
+    return `
+        <a href="${genMetadata.jpeg[1].url}" 
+        data-pswp-width="${genMetadata.jpeg[1].width}" 
+        data-pswp-height="${genMetadata.jpeg[1].height}" 
+        target="_blank">
+            <img src="${genMetadata.jpeg[0].url}" alt="${alt}" />
+        </a>
+    `.replace(/(\r\n|\n|\r)/gm, "");;
+}
+
+//gallery end
+
+const Nunjucks = require("nunjucks");
+
 module.exports = function (eleventyConfig) {
+  
+  //gallery
+
+  // Register galleryImage as a Nunjucks tag
+  eleventyConfig.addNunjucksAsyncShortcode('galleryImage', galleryImageShortcode);
+  eleventyConfig.addPairedNunjucksShortcode('gallery', galleryShortcode);
+
+  eleventyConfig.addPassthroughCopy('js');
+  eleventyConfig.addPassthroughCopy('css');
+  //gallery end
+
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
@@ -152,6 +184,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
+  
 
   eleventyConfig.addFilter("sitemapDateTimeString", (dateObj) => {
     const dt = DateTime.fromJSDate(dateObj, { zone: "utc" });
@@ -176,6 +209,27 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("events", function (collectionApi) {
     return collectionApi.getFilteredByTag("events");
   });
+
+  // Create a custom collection for gallery images
+  eleventyConfig.addCollection("galleryImages", function() {
+    const galleryPath = path.join(__dirname, 'img/gallery');
+    const files = fs.readdirSync(galleryPath);
+    return files.map(file => {
+      const filePath = path.join(galleryPath, file);
+      const data = {}; // Placeholder for image metadata
+      // Example: Read metadata from a JSON file with the same name as the image
+      const metadataPath = filePath.replace(/\.[^/.]+$/, ".json");
+      if (fs.existsSync(metadataPath)) {
+        Object.assign(data, JSON.parse(fs.readFileSync(metadataPath, 'utf8')));
+      }
+      return {
+        name: file,
+        path: `img/gallery/${file}`,
+        data: data
+      };
+    });
+  });
+  
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
@@ -239,4 +293,5 @@ module.exports = function (eleventyConfig) {
       output: "_site",
     },
   };
+  
 };
