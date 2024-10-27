@@ -2,9 +2,6 @@
 layout: layouts/base.njk
 title: Impressum
 templateClass: tmpl-post
-eleventyNavigation:
-  key: Impressum
-  order: 3
 ---
 Wir sind jeden Mittwoch von 18.00 - 21.00 Uhr in unseren Räumlichkeiten. Kommt gern vorbei! Alternativ könnt ihr uns auch eine Nachricht schreiben, oder unserem [Discord Channel](https://discord.gg/sn9vnFNk)
  beitreten.

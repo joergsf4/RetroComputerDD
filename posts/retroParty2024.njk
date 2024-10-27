@@ -1,0 +1,17 @@
+---
+title: Retroparty 2024
+description: Retroparty 2024
+date: 2023-10-27
+tags: 
+  - highlight
+layout: layouts/post.njk
+---
+<p>
+  Auch dieses Jahr fand unsere Retroparty wieder statt und brachte Retro-Fans jeden Alters zusammen. Die Veranstaltung war ein voller Erfolg mit jeder Menge Retrogaming, spannenden Themen rund um klassische Computer und Konsolen sowie nostalgischer Hardware zum Anfassen. Natürlich durfte auch das gemeinsame Grillen und Feiern nicht fehlen. Während draußen der Grill lief, tauschten sich die Gäste drinnen über ihre Lieblingsspiele aus und genossen die einzigartige Retro-Atmosphäre. Vielen Dank für den tollen Abend!
+</p>
+{% set images = collections.retropartyImages | reverse %}
+{% gallery "Retroparty 2024"%}
+  {% for image in images %}
+    {% galleryImage image.path, "" %}
+  {% endfor %}
+{% endgallery %}

@@ -1,0 +1,14 @@
+---
+title: Beträge
+layout: layouts/home.njk
+description: Was gibts neues beim RCD?
+date: Last Modified
+eleventyNavigation:
+  key: Beiträge
+  order: 3
+---
+<div id="posts">
+  <h2>Beträge</h2>
+  {% set postslist = collections.posts %}
+  {% include "postslist.njk" %}
+</div>
