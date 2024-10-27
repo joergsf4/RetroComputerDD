@@ -5,9 +5,6 @@ description: Retroparty beim RCD Dresden 2024
 date: 2024-10-26
 layout: layouts/event.njk
 image: /img/Flyer_RetroParty2024.jpg
-eleventyNavigation:
-  key: Retroparty 2024
-  order: 1
 ---
 
 ## Retroparty 2024 Dresden
