@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
+  branch: cms # Branch to update (optional; defaults to master)
 media_folder: "_site/img/cms"
 public_folder: "/img/cms" # The src attribute for uploaded media will begin with /images/uploads
 
