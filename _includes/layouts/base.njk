@@ -15,7 +15,7 @@
     {% if isdevelopment %}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     {% else %}
-    <link rel="icon" href="{{ '/img/favicon/favicon-192x192.png' | addHash }}" type="image/png">
+    <link rel="icon" href="{{ '/img/favicon/Final_8_mini_dunkel.png' | addHash }}" type="image/png">
     {% endif %}
     <meta name="theme-color" content="#f9c412">
     <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
@@ -60,6 +60,7 @@
     <script csp-hash>if (/Mac OS X/.test(navigator.userAgent))document.documentElement.classList.add('apple')
     </script>
     <!-- css is inserted by optimize-html custom plugin -->
+    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <header>
@@ -104,5 +105,16 @@
     </footer>
 
     <!-- Current page: {{ page.url | url }} -->
+    <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", (user) => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
   </body>
 </html>
