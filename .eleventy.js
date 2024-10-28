@@ -92,6 +92,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('css');
   //gallery end
 
+  // Copy Static Files to /_Site
+  eleventyConfig.addPassthroughCopy({
+    "./admin/config.yml": "./admin/config.yml"
+  });
+
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);

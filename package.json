@@ -10,10 +10,10 @@
     "serve": "npm run clean && eleventy --serve",
     "js-build": "rollup -c rollup.config.js",
     "js-build-watch": "rollup -c rollup.config.js -w",
-    "debug": "DEBUG=* eleventy && npm run test",
     "test": "mocha test/test*.js",
     "test-watch": "mocha test/test*.js --watch --watch-files=test/*",
-    "clean": "rm -Rf ./_site/posts/*"
+    "clean": "rm -Rf ./_site/posts/*",
+    "debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy"
   },
   "pre-push": [
     "build"
@@ -51,6 +51,7 @@
     "any-shell-escape": "^0.1.1",
     "clean-css": "^4.2.3",
     "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
     "csp-hash-generator": "0.0.3",
     "csso": "^4.0.3",
     "datauri": "^3.0.0",

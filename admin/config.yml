@@ -3,6 +3,7 @@ backend:
   branch: main # Branch to update (optional; defaults to master)
 media_folder: "_site/img/cms"
 public_folder: "/img/cms" # The src attribute for uploaded media will begin with /images/uploads
+
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Beitrag" # Used in the UI
