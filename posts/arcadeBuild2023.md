@@ -25,4 +25,3 @@ Hier ist eine kurze Story für die Homepage über den Bau des Arcade Cabinets:
 Heute ist "Der Automat" nicht nur ein Highlight unserer Ausstellung, sondern auch ein beliebter Treffpunkt für die nächste Generation. Vor allem die Kinder unserer Mitglieder lieben es, an dem Automaten zu spielen, die alten Klassiker zu entdecken und in die Spielewelt der 80er und 90er Jahre einzutauchen. So lebt das Retro-Feeling weiter – und wir sind stolz darauf, ein Stück Arcade-Geschichte selbst erschaffen zu haben.
 
 ![Arcade Cabinet](/img/arcadeBuild/IMG_1001.JPG)
-![Arcade Cabinet](/img/arcadeBuild/IMG_1485.gif)
