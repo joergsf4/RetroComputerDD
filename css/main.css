@@ -19,6 +19,32 @@ main img {
   content-visibility: auto;
 }
 
+.social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-links li {
+  display: inline-block;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+/* Icon-Größe */
+.social-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
 /* Avoid the header hiding the content on anchor scroll. */
 article * {
   scroll-margin-top: 50px;
@@ -314,6 +340,21 @@ h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
+
+.logo-text-container {
+  display: flex;
+  align-items: center; /* Horizontale Zentrierung von Logo und erster Textzeile */
+}
+
+.logo {
+  height: 1em; /* Setzt die Höhe des Logos auf die Höhe der Textzeile */
+  margin-right: 10px; /* Abstand zwischen Logo und Text */
+}
+
+.text {
+  font-size: 1em; /* Definiert die Textgröße, die als Grundlage für die Logogröße dient */
+}
+
 hr {
   box-sizing: content-box;
   height: 0;

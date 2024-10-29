@@ -1,6 +1,6 @@
 ---
-title: Über uns – Retrotechnik, Retroparties und unser Verein
-description: Erhalt der klassischen Computertechnologie, regelmäßige Retroparties und unser frisch gegründeter Verein.
+title: Über den RCD
+description: Erhalt der klassischen Computertechnologie, regelmäßige Retroparties und unser Verein.
 date: 2023-10-24
 tags: 
   - community
@@ -8,8 +8,8 @@ tags:
   - events
 layout: layouts/post.njk
 eleventyNavigation:
-  key: Über uns
-  order: 2
+  key: Verein
+  order: 20
 ---
 
 ### Retrotechnik

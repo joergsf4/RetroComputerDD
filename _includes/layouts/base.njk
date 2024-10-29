@@ -75,7 +75,6 @@
             <a href="{{ entry.url | url }}">{{ entry.title }}</a>
           {%- endfor %}
         </div>
-        <div id="reading-progress" aria-hidden="true"></div>
       </nav>
       <h1>{{ title }}</h1>
       {% block extraArticleHeader %}{% endblock %}
@@ -101,7 +100,19 @@
     </main>
 
     <footer>
-      <a href="/about/">{{ metadata.author.name }}</a>
+      <a href="/about/">{{ metadata.author.name }} - Impressum</a>
+      <ul class="social-links">
+        <li>
+          <a href="https://discord.gg/CDsdvYJt" target="_blank" rel="noopener noreferrer">
+            <img src="/img/discord-icon.svg" alt="Discord" class="social-icon"> Discord
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/retrocomputerdresden" target="_blank" rel="noopener noreferrer">
+            <img src="/img/Instagram_Glyph_White.svg" alt="Instagram" class="social-icon"> Instagram
+          </a>
+        </li>
+      </ul>
     </footer>
 
     <!-- Current page: {{ page.url | url }} -->
