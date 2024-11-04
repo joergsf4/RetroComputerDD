@@ -1,7 +1,7 @@
 ---
 title: Arcade Cabinet Bau 2007
 description: Wir bauen einen Arcade Automaten (Bausatz ;))
-date: 2007-05-21
+date: 2024-10-01
 tags:
   - history
 layout: layouts/post.njk

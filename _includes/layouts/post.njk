@@ -4,15 +4,6 @@ templateClass: tmpl-post
 ---
 {% extends "layouts/base.njk" %}
 
-
-{% block extraArticleHeader %}
-   {% set wc = content | striptags | wordcount %}
-   {% set wPerMinute = (wc / 240) + 1 %}
-   <aside>
-     {{ wPerMinute | round }} min read.
-   </aside>
-{% endblock %}
-
 {% set shareUrl = metadata.url + page.url %}
 
 {% block article %}
@@ -27,17 +18,20 @@ templateClass: tmpl-post
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "headline": "{{ title }}",
   "image": "{{ image }}",
-  "author": "{{ metadata.author.name }}", 
+  "author": {
+    "@type": "Organization",
+    "name": "Retro Computer Dresden e.V."
+  },
   "genre": "{{ metadata.genre }}", 
   "publisher": {
     "@type": "Organization",
     "name": "{{ metadata.publisher.name }}",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ '/img/favicon/favicon-192x192.png' | addHash }}"
+      "url": "{{ metadata.url }}/img/favicon/favicon-192x192.png"
     }
   },
   "url": "{{ metadata.url }}{{ canonicalUrl or page.url }}",

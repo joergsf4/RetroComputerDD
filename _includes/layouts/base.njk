@@ -29,9 +29,7 @@
       <meta name="description" content="{{ desc | escape  }}">
       <meta property="og:description" content="{{ desc | escape }}">
     {% endif %}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@{{ metadata.author.twitterHandle }}">
-    <meta name="twitter:creator" content="@{{ metadata.author.twitterHandle }}">
+
     {% if image %}
       <meta property="og:image" content="{{ image | absoluteUrl(metadata.url) }}">
     {% endif %}
@@ -69,7 +67,7 @@
         <input type="checkbox" id="hamburger"/>
 
         <div id="hamitems">
-          <h1><a href="{{ '/' | url }}" title="Homepage">{{ metadata.title }}</a></h1>
+          <a href="{{ '/' | url }}" title="Homepage">Home</a>
           {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
           {%- for entry in collections.all | eleventyNavigation %}
             <a href="{{ entry.url | url }}">{{ entry.title }}</a>
@@ -94,13 +92,15 @@
         {% endblock %}
 
         {% if page.url and page.url.indexOf("/posts/") > -1 %}
-          <p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+          <p>Veröffentlicht: <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
         {% endif %}
       </article>
     </main>
 
     <footer>
       <a href="/about/">{{ metadata.author.name }} - Impressum</a>
+      <a href="/about/Datenschutz">Datenschutz</a>
+      <a href="/about/Haftung">Haftungsausschluss</a>
       <ul class="social-links">
         <li>
           <a href="https://discord.gg/CDsdvYJt" target="_blank" rel="noopener noreferrer">

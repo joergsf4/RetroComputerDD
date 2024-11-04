@@ -1,7 +1,7 @@
 /* Color customization */
 :root {
-  --primary: #f9c412;
-  --primary-dark: #e7bf60;
+  --primary: #E94C4E;
+  --primary-dark: #181818;
 }
 
 .test-dead-code-elimination-sentinel {
@@ -53,26 +53,27 @@ article * {
 /* [ON BIG SCREEN] */
 /* (A) WRAPPER */
 #hamnav {
-  width: 100%;
-  background: #000;
+  background: #1AB1A0;
 }
 
 /* (B) HORIZONTAL MENU ITEMS */
 #hamitems { display: flex; }
 #hamitems a {
-  flex-grow: 1;
-  flex-basis: 0;
-  color: white;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: left;
+  padding: 14px 16px;
   text-decoration: none;
-  text-align: center;
+  font-size: 17px;
 }
-#hamitems a:hover { background: #aaa; }
+#hamitems a:hover { background: var(--primary-dark); }
 
 /* (C) HIDE HAMBURGER */
 #hamnav label, #hamburger { display: none; }
 
 /* [ON SMALL SCREENS] */
-@media screen and (max-width: 768px){
+@media screen and (max-width: 600px){
   /* (A) BREAK INTO VERTICAL MENU */
   #hamitems a {
     box-sizing: border-box;
@@ -85,10 +86,11 @@ article * {
   #hamnav label { 
     display: inline-block; 
     color: white;
-    background: #a02620;
+    background: #F2924F;
     font-style: normal;
     font-size: 1.2em;
-    padding: 10px;
+    padding: 10px 20px 10px 20px;
+    margin-left: 25px;
   }
 
   /* (C) TOGGLE SHOW/HIDE MENU */
@@ -952,10 +954,9 @@ header label {
   display: none;
 }
 header {
-  padding: 4.5em 1.5em 3em;
+  padding: 4.5em 1.5em 1em;
   width: 37.5em;
   margin: 0 auto;
-  text-align: center;
   max-width: 100%;
   display: flex;
   align-items: center;
@@ -967,12 +968,12 @@ header p {
 header nav {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 20px;
   width: 100vw;
   padding: 0.375em 1.5em;
   background: hsla(0, 0%, 100%, 0.9);
   font-weight: 200;
-  text-align: right;
+  z-index: 1;
 }
 header nav h1 {
   float: left;
@@ -989,7 +990,7 @@ header nav a {
   margin-left: 1.5em;
 }
 header nav a:first-of-type {
-  margin-left: auto;
+ 
 }
 header nav a:last-of-type {
   margin-right: 1.5em;

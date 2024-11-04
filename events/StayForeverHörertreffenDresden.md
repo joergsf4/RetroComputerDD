@@ -1,7 +1,7 @@
 ---
 title: Stay Forever Hörertreffen Dresden
 tags: events
-description: Stay Forever Hörertreffen 
+description: Stay Forever Hörertreffen
 date: 2024-10-30
 layout: layouts/event.njk
 image: /img/IMG_1408.JPG
@@ -9,7 +9,7 @@ image: /img/IMG_1408.JPG
 
 ## Stay Forever Hörertreffen in Dresden
 
-**Datum:** 30.10.2024
+**Datum:** ~~30.10.2024~~ TBA wegen Krankheit verschoben
 **Uhrzeit:** 18:00 – 21:00 Uhr
 **Ort:** Retro Computer Dresden e.V., Zwinglistr. 25, 01277 Dresden
 **Link:** [Link zur Einladung](https://community.stayforever.de/t/01277-dresden-sachsen/4868)
