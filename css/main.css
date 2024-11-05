@@ -1,7 +1,10 @@
 /* Color customization */
 :root {
-  --primary: #E94C4E;
-  --primary-dark: #181818;
+  --accent-color: #E74E52;
+  --secondary-color: #30B2A1;
+  --primary-color: #ED9055;
+  --background-color: #181818;
+  --text-color:#eee;
 }
 
 .test-dead-code-elimination-sentinel {
@@ -17,6 +20,12 @@
  */
 main img {
   content-visibility: auto;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
 }
 
 .social-links {
@@ -53,27 +62,34 @@ article * {
 /* [ON BIG SCREEN] */
 /* (A) WRAPPER */
 #hamnav {
-  background: #1AB1A0;
+  background: var(--primary-color);
 }
 
 /* (B) HORIZONTAL MENU ITEMS */
-#hamitems { display: flex; }
+#hamitems { 
+  display: flex; 
+  justify-content: center;
+  text-overflow: clip;
+  white-space: nowrap;
+}
 #hamitems a {
   float: left;
   display: block;
-  color: #f2f2f2;
   text-align: left;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+
 }
-#hamitems a:hover { background: var(--primary-dark); }
+#hamitems a:hover { 
+  background: var(--background-color); 
+}
 
 /* (C) HIDE HAMBURGER */
 #hamnav label, #hamburger { display: none; }
 
 /* [ON SMALL SCREENS] */
-@media screen and (max-width: 600px){
+@media screen and (max-width: 700px){
   /* (A) BREAK INTO VERTICAL MENU */
   #hamitems a {
     box-sizing: border-box;
@@ -167,7 +183,7 @@ header aside {
 
 #reading-progress {
   z-index: 1;
-  background-color: var(--primary);
+  background-color: var(--primary-color);
   width: 100vw;
   position: absolute;
   left: 0;
@@ -176,6 +192,10 @@ header aside {
   transform: translate(-100vw, 0);
   will-change: transform;
   pointer-events: none;
+}
+
+#posts ul {
+  list-style-type: none;
 }
 
 #posts li {
@@ -337,6 +357,7 @@ html {
 }
 body {
   margin: 0;
+  background-color: var(--background-color);
 }
 h1 {
   font-size: 2em;
@@ -368,6 +389,10 @@ pre {
 }
 a {
   background-color: transparent;
+  color: var(--accent-color);
+}
+a:hover {
+  color: var(--primary-color);
 }
 abbr[title] {
   border-bottom: none;
@@ -519,23 +544,8 @@ h6 {
   line-height: 1.5em;
   margin-bottom: 1.5em;
 }
-body,
-ol,
-p,
-pre,
-ul {
-  font-size: 1em;
-  line-height: 1.5;
-}
-ol,
-p,
-pre,
-ul {
-  margin-bottom: 1.5em;
-}
-h1 {
-  font-size: 2.074rem;
-}
+
+
 h1,
 h2 {
   line-height: 2.4rem;
@@ -569,12 +579,7 @@ ul {
   font-size: 1rem;
   line-height: 1.6;
 }
-ol,
-p,
-pre,
-ul {
-  margin-bottom: 1.36rem;
-}
+
 @media (min-width: 600px) {
   h1 {
     font-size: 4.3978rem;
@@ -678,14 +683,14 @@ th {
 }
 td,
 th {
-  border-bottom: 1px solid #595959;
+  border-bottom: 1px solid;
   overflow: auto;
   padding: 0.75em;
   text-align: left;
   vertical-align: top;
 }
 thead th {
-  border-bottom: 1px solid #f9c412;
+  border-bottom: 1px solid --accent-color;
 }
 table {
   display: table;
@@ -699,7 +704,7 @@ pre {
   font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
 }
 pre:has(code:not([class])) {
-  background: #2d2d2d;
+  background: var(--background-color);
 }
 pre code:not([class]) {
   color: #ccc;
@@ -709,7 +714,7 @@ pre code:not([class]) {
 code,
 kbd {
   border-radius: 0.3em;
-  color: #e2777a;
+  color: var(--secondary-color);
   padding: 0 0.3em;
   font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
   font-size: 90%;
@@ -719,10 +724,10 @@ kbd {
   background: #2d2d2d;
 }
 kbd {
-  color: #7ec699;
+  color: var(--primary-color);
 }
 mark {
-  background: #f9c412;
+  background: var(--accent-color);
   padding: 0 0.3em;
 }
 h1,
@@ -738,18 +743,12 @@ h4,
 h6 {
   font-style: italic;
 }
-a {
-  color: #f9c412;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
+
 small {
   color: #ccc;
 }
 hr {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid --text-color;
 }
 figcaption {
   color: #ccc;
@@ -873,7 +872,7 @@ input[type="submit"] {
 button:not([disabled]):hover,
 button[type="submit"]:hover,
 input[type="submit"]:hover {
-  background: #ba9005;
+  background: var(--accent-color);
   color: #000;
 }
 input[type="color"],
@@ -922,7 +921,7 @@ video {
 body {
   font-family: var(--font-family);
   background: #181818;
-  color: #eee;
+  color: var(--text-color);
 }
 section {
   margin-left: auto;
@@ -968,7 +967,6 @@ header p {
 header nav {
   position: fixed;
   top: 0;
-  left: 20px;
   width: 100vw;
   padding: 0.375em 1.5em;
   background: hsla(0, 0%, 100%, 0.9);
@@ -987,7 +985,6 @@ header nav a {
   text-decoration: none;
   font-family: var(--font-family);
   color: #181818;
-  margin-left: 1.5em;
 }
 header nav a:first-of-type {
  
@@ -1051,10 +1048,10 @@ dd {
   margin-left: 2.25em;
 }
 dd + dt {
-  border-top: 1px solid #f9c412;
+  border-top: 1px solid var(--accent-color);
 }
 blockquote {
-  border-left: 1px solid #f9c412;
+  border-left: 1px solid var(--accent-color);
   padding: 0 1.5em;
   margin: 1.5em 0 1.5em 1.5em;
 }
@@ -1179,32 +1176,33 @@ pre[class*="language-"] {
 input[type="submit"],
 button[type="submit"],
 button:not([disabled]) {
-  background: var(--primary);
+  background: var(--primary-color);
 }
 input[type="submit"]:hover,
 button[type="submit"]:hover,
 button:not([disabled]):hover {
-  background: var(--primary-dark);
+  background: var(--secondary-color);
 }
 
 dd + dt {
-  border-top: 1px solid var(--primary);
+  border-top: 1px solid var(--primary-color);
 }
 
 blockquote {
-  border-left: 1px solid var(--primary);
+  border-left: 1px solid var(--primary-color);
 }
 
 mark {
-  background: var(--primary);
+  background: var(--primary-color);
 }
 
 a {
-  color: var(--primary);
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: var(--primary-color);
 }
 
 .gallery {
