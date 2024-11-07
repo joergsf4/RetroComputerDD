@@ -68,7 +68,7 @@ article * {
 /* (B) HORIZONTAL MENU ITEMS */
 #hamitems { 
   display: flex; 
-  justify-content: center;
+  justify-content: start;
   text-overflow: clip;
   white-space: nowrap;
 }
@@ -518,7 +518,7 @@ h1 {
   margin-bottom: 0.5em;
 }
 h2 {
-  font-size: 2.5em;
+  font-size: 2.0em;
   line-height: 1.2;
   margin-bottom: 0.6em;
 }
@@ -582,37 +582,37 @@ ul {
 
 @media (min-width: 600px) {
   h1 {
-    font-size: 4.3978rem;
-    line-height: 4.4rem;
+    font-size: 3.5rem;
+    line-height: 4rem;
   }
   h1,
   h2 {
     margin-bottom: 1.496rem;
   }
   h2 {
-    font-size: 3.1097rem;
-    line-height: 3.52rem;
+    font-size: 2em;
+    line-height: 3rem;
   }
   h3 {
-    font-size: 2.1989rem;
-    line-height: 2.64rem;
-    margin-bottom: 1.496rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin-bottom: 1.5em;
   }
   h4 {
-    font-size: 1.5554rem;
+    font-size: 1.5rem;
   }
   h4,
   h5 {
-    line-height: 1.76rem;
-    margin-bottom: 1.496rem;
+    line-height: 1.7rem;
+    margin-bottom: 1.4rem;
   }
   h5,
   h6 {
     font-size: 1.1rem;
   }
   h6 {
-    line-height: 1.76rem;
-    margin-bottom: 1.496rem;
+    line-height: 1.7rem;
+    margin-bottom: 1.4rem;
   }
   body,
   ol,
@@ -626,34 +626,34 @@ ul {
   p,
   pre,
   ul {
-    margin-bottom: 1.496rem;
+    margin-bottom: 1.5rem;
   }
 }
 @media (min-width: 1200px) {
   h1 {
-    font-size: 6.0756rem;
-    line-height: 6.72rem;
+    font-size: 4rem;
+    line-height: 5rem;
   }
   h1,
   h2 {
-    margin-bottom: 1.632rem;
+    margin-bottom: 1.6rem;
   }
   h2 {
-    font-size: 4.05rem;
-    line-height: 4.8rem;
+    font-size: 4rem;
+    line-height: 4rem;
   }
   h3 {
-    font-size: 2.7rem;
-    line-height: 2.88rem;
-    margin-bottom: 1.632rem;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    margin-bottom: 1.5rem;
   }
   h4 {
     font-size: 1.8rem;
   }
   h4,
   h5 {
-    line-height: 1.92rem;
-    margin-bottom: 1.632rem;
+    line-height: 1.9rem;
+    margin-bottom: 1.6rem;
   }
   h5,
   h6 {
@@ -1226,3 +1226,8 @@ a {
   grid-column: 1;
 }
 
+.site-logo {
+  float: left;
+  max-width:130px;
+  margin-right: 10px;
+}
