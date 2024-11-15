@@ -68,7 +68,7 @@ article * {
 /* (B) HORIZONTAL MENU ITEMS */
 #hamitems { 
   display: flex; 
-  justify-content: start;
+  justify-content: center;
   text-overflow: clip;
   white-space: nowrap;
 }
@@ -101,12 +101,14 @@ article * {
   /* (B) SHOW HAMBURGER ICON */
   #hamnav label { 
     display: inline-block; 
-    color: white;
-    background: #F2924F;
+    color: rgb(0, 0, 0);
+    background: transparent;
     font-style: normal;
     font-size: 1.2em;
     padding: 10px 20px 10px 20px;
-    margin-left: 25px;
+    margin-right: 25px;
+    position: absolute;
+    right: 0;
   }
 
   /* (C) TOGGLE SHOW/HIDE MENU */
