@@ -22,4 +22,13 @@ Ein herzliches Dankeschön an alle, die dabei waren und mitgeholfen haben, diese
 
 Wir freuen uns darauf, euch im neuen Jahr wieder bei unseren Treffen und Veranstaltungen zu sehen.
 
-![Weihnachtsfeier](/img/weihnachtsfeier.jpg)
+![Weihnachtsfeier](/img/weihnachtsfeier2024/wfeier2024_1.JPG)
+![Weihnachtsfeier](/img/weihnachtsfeier2024/wfeier2024_2.JPG)
+![Weihnachtsfeier](/img/weihnachtsfeier2024/wfeier2024_3.JPG)
+![Weihnachtsfeier](/img/weihnachtsfeier2024/wfeier2024_4.JPG)
+![Weihnachtsfeier](/img/weihnachtsfeier2024/wfeier2024_5.JPG)
+![Weihnachtsfeier](/img/weihnachtsfeier2024/wfeier2024_6.JPG)
+![Weihnachtsfeier](/img/weihnachtsfeier2024/wfeier2024_7.JPG)
+![Weihnachtsfeier](/img/weihnachtsfeier2024/wfeier2024_8.JPG)
+![Weihnachtsfeier](/img/weihnachtsfeier2024/wfeier2024_9.JPG)
+![Weihnachtsfeier](/img/weihnachtsfeier2024/wfeier2024_10.JPG)
