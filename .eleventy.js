@@ -235,26 +235,31 @@ module.exports = function (eleventyConfig) {
     });
   });
 
-  // Create a custom collection for gallery images
-  eleventyConfig.addCollection("retropartyImages", function() {
-    const galleryPath = path.join(__dirname, 'img/retroparty2024');
-    const files = fs.readdirSync(galleryPath);
-    return files.map(file => {
-      const filePath = path.join(galleryPath, file);
-      const data = {}; // Placeholder for image metadata
-      // Example: Read metadata from a JSON file with the same name as the image
-      const metadataPath = filePath.replace(/\.[^/.]+$/, ".json");
-      if (fs.existsSync(metadataPath)) {
-        Object.assign(data, JSON.parse(fs.readFileSync(metadataPath, 'utf8')));
-      }
-      return {
-        name: file,
-        path: `img/retroparty2024/${file}`,
-        data: data
-      };
-    });
-  });
-  
+ // Funktion für mehrere Galerien
+    function createImageCollection(collectionName, folderName) {
+      eleventyConfig.addCollection(collectionName, function() {
+        const galleryPath = path.join(__dirname, `img/${folderName}`);
+        const files = fs.readdirSync(galleryPath);
+        return files.map(file => {
+          const filePath = path.join(galleryPath, file);
+          const data = {}; // Placeholder for image metadata
+          // Example: Read metadata from a JSON file with the same name as the image
+          const metadataPath = filePath.replace(/\.[^/.]+$/, ".json");
+          if (fs.existsSync(metadataPath)) {
+            Object.assign(data, JSON.parse(fs.readFileSync(metadataPath, 'utf8')));
+          }
+          return {
+            name: file,
+            path: `img/${folderName}/${file}`,
+            data: data
+          };
+        });
+      });
+    }
+    
+    createImageCollection("retropartyImages", "retroparty2024");
+    createImageCollection("WeihnachtsfeierImages", "weihnachtsfeier2024");
+
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
